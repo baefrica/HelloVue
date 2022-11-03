@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{cnt}}</div>
+      <button @click="cnt++">증가</button>
+    </div>
+    
+    <!--인스턴스의 유효범위가 아님!!-->
+    <div>{{cnt}}</div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            cnt: 0,
+          };
+        },
+        beforeCreate() {
+          console.log('beforeCreate cnt : ' + this.cnt);
+        },
+        created() {
+          console.log('created cnt : ' + this.cnt);
+          console.log('created에 연결된 DOM : ' + this.$el);
+        },
+        beforeMount() {
+          console.log('beforeMount cnt : ' + this.cnt);
+          console.log('beforeMount에 연결된 DOM : ' + this.$el);
+        },
+        // 이때 확실히 연결이 끝났다라고 생각하자
+        mounted() {
+          console.log('mounted cnt : ' + this.cnt);
+          console.log('mounted에 연결된 DOM : ' + this.$el);
+        },
+        beforeUpdate() {
+          console.log('beforeUpdate 호출');
+        },
+        updated() {
+          console.log('update cnt : ' + this.cnt);
+        },
+        // 파괴는 ㄴㄴ
+      });
+    </script>
+  </body>
+</html>

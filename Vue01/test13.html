@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h2>{{cnt}}</h2>
+        <button v-on:click="cnt++">누르면 증가함당</button>
+        <button v-on:click="plus()">누르면 증가함당2</button>
+        <button @click="plus">누르면 증가함당3</button>
+      </div>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            cnt: 1,
+          };
+        },
+        methods: {
+          plus() {
+            this.cnt++;
+            console.log("메소드 실행이야!!!");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

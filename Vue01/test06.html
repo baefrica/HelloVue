@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!--보간법을 써보겠다.-->
+    <div id="app">
+      <!--콧수염 방식-->
+      <h2>{{ msg }}</h2>
+      <!--v-html-->
+      <h3 v-html="msg"></h3>
+      <!--v-text-->
+      <h4 v-text="msg"></h4>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: '<h2 style="color:red">이 글은 빨간색입니다</h2>',
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

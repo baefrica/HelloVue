@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>test08</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <style type="text/css">
+    .completed {
+      text-decoration: line-through;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>성찬이의 계획</h1>
+    <ol type="I">
+      <li :class="{completed: to.done}" :style="myStyle" v-for="to in todos">
+        {{ to.todo }}
+        <button @click="complete(to)">완료</button>
+      </li>
+    </ol>
+  </div>
+</body>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      todos: [
+        {
+          todo: "입실체크",
+          done: false
+        },
+        {
+          todo: "Vue 마스터하기",
+          done: false
+        },
+        {
+          todo: "밥 묵기",
+          done: false
+        },
+        {
+          todo: "퇴실체크",
+          done: false
+        }
+
+      ],
+      myStyle: {
+        fontSize: '25px'
+      }
+    },
+    methods: {
+      complete(todo) {
+        todo.done = !todo.done
+      }
+    },
+  });
+</script>
+
+</html>

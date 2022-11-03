@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>test12-1</title>
+  </head>
+
+<body>
+  <div id="app">
+    <div>
+      <h2>여러분의 소속 캠퍼스를 선택하시오</h2>
+      <select v-model="selectedArea">
+        <option value="" disabled>선택하시오</option>
+        <option value="seoul">서울</option>
+        <option value="dj">대전</option>
+        <option value="gj">광주</option>
+        <option value="buk">부울경</option>
+        <option value="gm">구미</option>
+      </select>
+      <div v-if="selectedArea">
+        <p>소속 캠퍼스는 : {{ selectedArea }}</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      selectedArea: ""
+    },
+    methods: {
+      
+    },
+  });
+</script>
+
+</html>

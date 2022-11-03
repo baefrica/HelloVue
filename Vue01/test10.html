@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--true 로 바꾸면 뽁 하고 Hello 나타난다-->
+      <h1 v-show="ok">Hello</h1>
+      <input type="text" v-model="msg"/>
+      <button v-show="msg.trim().length !== 0">검색</button>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            ok: false,
+            msg: "Hello",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

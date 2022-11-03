@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>test08</title>
+  </head>
+  <body>
+    <div id="app">
+        <h2>부모 컴포넌트</h2>
+        <child-view :user="member"></child-view>
+    </div>
+
+    <template id="child-view">
+        <div>
+            <h3>{{ user.name }} 님의 정보</h3>
+            <div>나이 : {{ user.age }}</div>
+            <div>e-mail : {{ user.email }}</div>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('child-view', {
+            template: "#child-view",
+            props: [
+                "user"
+            ]
+        })
+
+        const app = new Vue ({
+            el: '#app',
+            data() {
+                return {
+                    member: {
+                        name: "bae",
+                        age: 27,
+                        email: "scbsoccer@naver.com"
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

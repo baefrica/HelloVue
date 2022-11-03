@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="msg"/>
+      </div>
+      <div>
+        <h3>{{msg | cnt1}}</h3>
+        <h3>{{msg | cnt2('입력바람') | cnt3}}</h3>
+      </div>
+    </div>
+    
+    <script>
+      Vue.filter(
+        'cnt1', (val) => {
+        if(val.length === 0){
+          return;
+        }
+        else{
+          return `${val} : ${val.length}자`;
+        }
+      });
+
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: "",
+          };
+        },
+
+        filters: {
+          // 지역 필터
+          cnt2(val, alternative) {  // alternative 는 아무것도 없을 때
+            if(val.length === 0){
+              return alternative;
+            }
+            else{
+              return `${val} : ${val.length}`;
+            }
+          },
+          cnt3(val) {
+            return `${val} 글자`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <title>test10-1</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      이메일 수신 동의
+      <input type="checkbox" v-model="email">
+    </div>
+    <div>
+      당신은 로봇 입니까?
+      <input type="checkbox" v-model="robot" true-value="Y" false-value="N">
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      email: false,
+      robot: "Y"
+    },
+    methods: {
+      
+    },
+  });
+</script>
+
+</html>

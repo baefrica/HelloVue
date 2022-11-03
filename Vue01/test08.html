@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:id="idValue">v-bind 연습1</div>
+      <div id="idValue">v-bind 연습2</div>
+      <div :id="idValue">v-bind 연습3</div>
+
+      <button v-bind:{key}="btnId">바튼</button>
+      <button :{key}="btnId">바튼2</button>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            idValue: "test-id",
+            key: "class",
+            btnId: "test-btn",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

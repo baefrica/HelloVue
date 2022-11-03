@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--v-model 은 여러 나라 언어 업데이트 바로바로 되지 않음-->
+      <!--해결방법은 input 이벤트를 이용하여 처리해야함-->
+      <!--v-model 이 초기값을 무시하게 함-->
+      <input type="text" value="초기값" v-model="msg"/>
+      <div>{{msg}}</div>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: "hello",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

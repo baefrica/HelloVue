@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h2>숫자를 돌려보자</h2>
+        <span v-for="i in 10">{{ i }}</span>
+      </div>
+
+      <div>
+        <h2>문자배열을 돌려보자</h2>
+        <ul>
+          <li v-for="name in names">{{name}}</li>
+        </ul>
+
+        <h2>인덱스 써보고 싶엉</h2>
+        <ul>
+          <!--순서가 중요하다-->
+          <li v-for="(name, index) in names">{{index + 1}} : {{name}}</li>
+        </ul>
+
+        <h2>ul 말고 ol</h2>
+        <ol>
+          <li v-for="(name, index) in names">{{name}}</li>
+        </ol>
+
+        <h2>객체 배열</h2>
+        <ul>
+          <!--순서가 중요하다-->
+          <li v-for="human in humans">
+            {{human.name}} : {{human.age}}세</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            names: ['손흥민', '황의조', '이강인', '배성찬', '황희찬', '킴민재'],
+            humans: [
+              {
+                name: "손흥민",
+                age: "31"
+              },
+              {
+                name: "황희찬",
+                age: "27"
+              },
+              {
+                name: "이강인",
+                age: "23"
+              },
+            ]
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

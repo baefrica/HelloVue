@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="msg"/>
+        <p>원본 메시지 : {{msg}}</p>
+        <p>역순 메시지1 : {{reversedMsg}}</p>
+      </div>
+    </div>
+    
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: "hello",
+            reversedMsg: "",
+          };
+        },
+
+        // computed 보다 좀 더 자유롭다고 생각
+        watch: {
+          msg(newVal) {
+            this.reversedMsg = newVal.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

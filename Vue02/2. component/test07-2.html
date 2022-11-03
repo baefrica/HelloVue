@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>test07-2</title>
+  </head>
+  <body>
+    <div id="app">
+        <h2>부모 컴포넌트</h2>
+        <!-- 배열 돈 다는 느낌 -->
+        <child-view v-for="a in areas" :area="a" :msg="msg[parseInt(Math.random()*5)]"></child-view>
+    </div>
+
+    <template id="child-view">
+        <div>
+            <h3>{{ area }} 지역 컴포넌트</h3>
+            <div>{{ msg }}</div>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('child-view', {
+            template: "#child-view",
+            props: [
+                "area", "msg"
+            ]
+        })
+
+        const app = new Vue ({
+            el: '#app',
+            data() {
+                return {
+                    areas: ["서울", "대전", "대구", "부산", "울산"],
+                    msg: [
+                        "7반", "4반", "5반", "2반", "8반"
+                    ]
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

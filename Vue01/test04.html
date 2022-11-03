@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+        {{ cnt }}
+    </div>
+
+    <script>
+      // HTML 요소를 직접 넣겟다.
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            cnt : 1,
+          };
+        },
+        methods: {
+          plus() {
+            this.cnt++;
+            console.log(this);
+          },
+
+          // 화살표 함수는 안됨
+          plus2: () => {
+            this.cnt++;
+            console.log(this);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
